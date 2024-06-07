@@ -1,0 +1,11 @@
+.header {
+    text-align: center;
+    background-color: steelblue;
+    color: white;
+    margin: 0;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-around;
+}
