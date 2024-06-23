@@ -1,27 +1,26 @@
 import React from 'react';
+import Track from './track'
 
-function TrackList(props) {
-    const data = props.track;
-
-    // function addPlaylist(index) {
-    //     // console.log(data[index].name);
-    //     // console.log(data[index].artist);
-    //     // console.log(data[index].album);
-    // }
+function TrackList({response}) {
+    if (response.length > 0) {
+        return(
+            <div>
+                <h1>Results</h1>
+                {response[0].map(track => {
+                    return(
+                        <Track 
+                          name={track.name}
+                          artist={track.artist}
+                          album={track.album}
+                        />
+                    )
+                })}
+            </div>
+        );
+    }
 
     return(
-        <div>
-            <h1>Results</h1>
-            {data.map((song, index) => (
-                <div key={index}>
-                    <span>{song.name}</span>
-                    <span>{song.artist}</span>
-                    <span>{song.album}</span>
-                    {/* <button onClick={addPlaylist(index)}>+</button> */}
-                    <button>+</button>
-                </div>
-            ))}
-        </div>
+        <h1>Results</h1>
     );
 }
 

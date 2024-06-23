@@ -49,14 +49,23 @@ function Search({onResponse}) {
     }
 
     const getSearch = async () => {
-        const response = await fetch(`https://api.spotify.com/v1/search?type=track&q=${data}`, {
+        const response = await fetch(`https://api.spotify.com/v1/search?type=track&q=drake`, { // update with ${term}
             headers: {
               Authorization: 'Bearer ' + accessToken
             }
         });
     
         const dataR = await response.json();
-        console.log(dataR); // use the onResponse prop to set the response to the state array
+
+        onResponse((prev) => {
+            return [dataR.tracks.items.map((track) => ({
+                id: track.id,
+                name: track.name,
+                artist: track.artists[0].name,
+                album: track.album.name,
+                ur: track.uri
+            })), ...prev]
+        });
     }
     
     return(
