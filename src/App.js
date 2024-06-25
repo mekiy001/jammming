@@ -20,13 +20,19 @@ function App() {
     });
   }
 
+  const removeSong = (track) => {
+    setPlaylist((prev) => {
+      return prev.filter((element) => element.id !== track.id);
+    });
+  }
+
   return (
   <div>
     <h1 className={styles.header}>Jamming</h1>
     <Search onResponse={setResponse}/>
     <div className={styles.flex}>
       <TrackList response={response} addSong={addSong}/>
-      <Playlist playlist={playlist}/>
+      <Playlist playlist={playlist} removeSong={removeSong}/>
     </div>
   </div>
   );

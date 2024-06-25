@@ -1,7 +1,7 @@
 import React from 'react';
 import Track from './track';
 
-function Playlist({playlist}) {
+function Playlist({playlist, removeSong}) {
     return(
         <div>
             <input type='text'/>
@@ -12,6 +12,8 @@ function Playlist({playlist}) {
                           artist={track.artist}
                           album={track.album}
                           track={track}
+                          playlist={true}
+                          removeSong={removeSong}
                         />
                     )
                 })}

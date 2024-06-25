@@ -14,6 +14,7 @@ function TrackList({response, addSong}) {
                           album={track.album}
                           addSong={addSong}
                           track={track}
+                          playlist={false}
                         />
                     )
                 })}
