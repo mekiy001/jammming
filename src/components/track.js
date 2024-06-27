@@ -1,4 +1,5 @@
 import React from 'react';
+import Styles from '../styles/track.module.css';
 
 function Track({name, artist, album, addSong, track, playlist, removeSong}) {
 
@@ -12,19 +13,19 @@ function Track({name, artist, album, addSong, track, playlist, removeSong}) {
 
     if (playlist) {
         return(
-            <div>
+            <div className={Styles.div}>
                 <h3>{name}</h3>
                 <span>{artist} | {album}</span>
-                <button onClick={handleClickRemove}>-</button>
+                <button onClick={handleClickRemove} className={Styles.button}>-</button>
             </div>
         );
     }
 
     return(
-        <div>
+        <div className={Styles.div}>
             <h3>{name}</h3>
             <span>{artist} | {album}</span>
-            <button onClick={handleClick}>+</button>
+            <button onClick={handleClick} className={Styles.button}>+</button>
         </div>
     );
 }

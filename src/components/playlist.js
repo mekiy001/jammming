@@ -1,10 +1,11 @@
 import React from 'react';
 import Track from './track';
+import Styles from '../styles/playlist.module.css';
 
 function Playlist({playlist, removeSong}) {
     return(
-        <div>
-            <input type='text'/>
+        <div className={Styles.playlist}>
+            <input type='text' className={Styles.input}/>
             {playlist.map(track => {
                 return(
                         <Track 
@@ -17,7 +18,7 @@ function Playlist({playlist, removeSong}) {
                         />
                     )
                 })}
-            <button>Save to Spotify</button>
+            <button className={Styles.button}>Save to Spotify</button>
         </div>
     );
 };

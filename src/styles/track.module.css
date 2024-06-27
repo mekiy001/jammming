@@ -1,0 +1,15 @@
+.div {
+    border-bottom: 1px solid white;
+}
+
+.button {
+    float: right;
+    color: white;
+    background-color: #010c3f;
+    border-style: none;
+    cursor: pointer;
+}
+
+.button:hover {
+    color: rgba(265, 265, 265, .5);
+}

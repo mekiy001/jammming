@@ -49,7 +49,7 @@ function Search({onResponse}) {
     }
 
     const getSearch = async () => {
-        const response = await fetch(`https://api.spotify.com/v1/search?type=track&q=drake`, { // update with ${term}
+        const response = await fetch(`https://api.spotify.com/v1/search?type=track&q=${data}`, {
             headers: {
               Authorization: 'Bearer ' + accessToken
             }
@@ -69,9 +69,9 @@ function Search({onResponse}) {
     }
     
     return(
-        <div>
-            <input type='text' className={styles.center} onChange={handleChange}/>
-            <button className={styles.center} onClick={handleClick}>SEARCH</button>
+        <div className={styles.div}>
+            <input type='text' className={styles.input} onChange={handleChange}/>
+            <button className={styles.button} onClick={handleClick}>SEARCH</button>
         </div>
     );
 }

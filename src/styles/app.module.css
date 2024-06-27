@@ -1,11 +1,40 @@
 .header {
     text-align: center;
-    background-color: steelblue;
+    background-color: #010c3f;
     color: white;
     margin: 0;
+    font-size: 3em;
 }
 
 .flex {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
+}
+
+.appB {
+    height: 100vh;
+    background-image: url('../background_photo_desktop.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 500;
+    color: #fff;
+    width: 100%;
+}
+
+.highlight {
+    color: #6c41ec;
+}
+
+.appA {
+    height: 100%;
+    background-image: url('../background_photo_desktop.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 500;
+    color: #fff;
+    width: 100%;
 }

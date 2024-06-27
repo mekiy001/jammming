@@ -26,9 +26,22 @@ function App() {
     });
   }
 
+  if (response.length === 0) {
+    return (
+      <div className={styles.appB}>
+        <h1 className={styles.header}>Ja<span className={styles.highlight}>mmm</span>ing</h1>
+        <Search onResponse={setResponse}/>
+        <div className={styles.flex}>
+          <TrackList response={response} addSong={addSong}/>
+          <Playlist playlist={playlist} removeSong={removeSong}/>
+        </div>
+      </div>
+      );
+  }
+
   return (
-  <div>
-    <h1 className={styles.header}>Jamming</h1>
+  <div className={styles.appA}>
+    <h1 className={styles.header}>Ja<span className={styles.highlight}>mmm</span>ing</h1>
     <Search onResponse={setResponse}/>
     <div className={styles.flex}>
       <TrackList response={response} addSong={addSong}/>

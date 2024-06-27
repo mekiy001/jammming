@@ -1,5 +1,27 @@
-.center {
+.input {
     display: block;
     margin: auto;
     margin-top: 5%;
+    font-size: 1em;
+    outline: none;
+    text-align: center;
+}
+
+.button {
+    display: block;
+    margin: auto;
+    margin-top: 5%;
+    font-size: 1em;
+    color: #fff;
+    background-color: #010c3f;
+    border-radius: 15px;
+}
+
+.button:hover {
+    background-color: #6c41ec;
+    cursor: pointer;
+}
+
+.div {
+    margin-bottom: 5%;
 }

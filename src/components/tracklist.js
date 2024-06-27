@@ -1,10 +1,11 @@
 import React from 'react';
-import Track from './track'
+import Track from './track';
+import Styles from '../styles/tracklist.module.css';
 
 function TrackList({response, addSong}) {
     if (response.length > 0) {
         return(
-            <div>
+            <div className={Styles.tracklist}>
                 <h1>Results</h1>
                 {response[0].map((track) => {
                     return(
@@ -23,7 +24,7 @@ function TrackList({response, addSong}) {
     }
 
     return(
-        <h1>Results</h1>
+        <h1 className={Styles.tracklist}>Results</h1>
     );
 }
 
