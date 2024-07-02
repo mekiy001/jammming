@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styles from '../styles/search.module.css';
+import Spotify from '../spotify';
 
 function Search({onResponse}) {
     const [url, setUrl] = useState('');
@@ -24,16 +25,7 @@ function Search({onResponse}) {
             window.location.href = url;
         }
 
-        const accessTokenMatch = window.location.href.match(/access_token=([^&]*)/);
-        const expiresInMatch = window.location.href.match(/expires_in=([^&]*)/);
-        if (accessTokenMatch && expiresInMatch) {
-            accessToken = accessTokenMatch[1];
-            const expiresIn = Number(expiresInMatch[1]);
-            window.setTimeout(() => accessToken = '', expiresIn * 1000);
-            window.history.pushState('Access Token', null, '/');            
-        }
-
-        if (accessToken) {
+        if (Spotify.token()) {
             getSearch();
         }
 
@@ -51,7 +43,7 @@ function Search({onResponse}) {
     const getSearch = async () => {
         const response = await fetch(`https://api.spotify.com/v1/search?type=track&q=${data}`, {
             headers: {
-              Authorization: 'Bearer ' + accessToken
+              Authorization: 'Bearer ' + Spotify.getAccessToken()
             }
         });
     
@@ -63,7 +55,7 @@ function Search({onResponse}) {
                 name: track.name,
                 artist: track.artists[0].name,
                 album: track.album.name,
-                ur: track.uri
+                uri: track.uri
             })), ...prev]
         });
     }

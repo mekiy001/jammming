@@ -33,7 +33,7 @@ function App() {
         <Search onResponse={setResponse}/>
         <div className={styles.flex}>
           <TrackList response={response} addSong={addSong}/>
-          <Playlist playlist={playlist} removeSong={removeSong}/>
+          <Playlist playlist={playlist} removeSong={removeSong} setPlaylist={setPlaylist}/>
         </div>
       </div>
       );
