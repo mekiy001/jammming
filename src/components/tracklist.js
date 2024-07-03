@@ -7,9 +7,10 @@ function TrackList({response, addSong}) {
         return(
             <div className={Styles.tracklist}>
                 <h1>Results</h1>
-                {response[0].map((track) => {
+                {response[0].map((track, index) => {
                     return(
-                        <Track 
+                        <Track
+                          key={index}
                           name={track.name}
                           artist={track.artist}
                           album={track.album}
@@ -24,7 +25,7 @@ function TrackList({response, addSong}) {
     }
 
     return(
-        <h1 className={Styles.tracklist}>Results</h1>
+        <h1>Results</h1>
     );
 }
 

@@ -12,31 +12,34 @@ function Playlist({playlist, removeSong, setPlaylist}) {
     }
 
     const handleClick = async () => {
-        const headers = { Authorization: 'Bearer ' + Spotify.getAccessToken() };
-        const trackUris = playlist.map(track => track.uri);
+        if (playlist.length >= 1) {
+            const headers = { Authorization: 'Bearer ' + Spotify.getAccessToken() };
+            const trackUris = playlist.map(track => track.uri);
 
-        const response = await fetch('https://api.spotify.com/v1/me', {
-            headers: headers
-        });
-
-        const data = await response.json();
-
-        const response2 = await fetch(`https://api.spotify.com/v1/users/${data.id}/playlists`, {
-            headers: headers,
-            method: 'POST',
-            body: JSON.stringify({name: playlistName})
-        });
+            if (playlistName !== '') {
+                const response = await fetch('https://api.spotify.com/v1/me', {
+                    headers: headers
+                });
         
-        const data2 = await response2.json();
+                const data = await response.json();
+        
+                const response2 = await fetch(`https://api.spotify.com/v1/users/${data.id}/playlists`, {
+                    headers: headers,
+                    method: 'POST',
+                    body: JSON.stringify({name: playlistName})
+                });
+                
+                const data2 = await response2.json();
+        
+                await fetch(`https://api.spotify.com/v1/playlists/${data2.id}/tracks`, {
+                    headers: headers,
+                    method: 'POST',
+                    body: JSON.stringify({"uris": trackUris})
+                });
 
-        await fetch(`https://api.spotify.com/v1/playlists/${data2.id}/tracks`, {
-            headers: headers,
-            method: 'POST',
-            body: JSON.stringify({"uris": trackUris})
-        });
-
-        setPlaylistName('');
-        setPlaylist([]);
+                window.location.href = 'http://localhost:3000/';
+            }
+        }
     }
 
     return(

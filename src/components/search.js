@@ -26,7 +26,12 @@ function Search({onResponse}) {
         }
 
         if (Spotify.token()) {
-            getSearch();
+            if (data === '') {
+                window.location.href = 'http://localhost:3000/';
+            }
+            else {
+                getSearch();
+            }
         }
 
         localStorage.setItem('term', term);
