@@ -2,7 +2,7 @@
 
 ## Description
 
-This project was built to put into practice my knowledge of React components, pasasing state, and making requests with the Spotify API
+This project was built to put into practice my knowledge of React components, passing state, and making requests with the Spotify API
 
 ## Technologies
 
